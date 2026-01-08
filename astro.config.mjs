@@ -6,7 +6,7 @@ import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 
 export default defineConfig({
-  site: 'http://localhost:4321/',
+  site: 'https://demo-astro-jocr.vercel.app/',
   integrations: [
     react(),
     mdx(),
@@ -15,7 +15,7 @@ export default defineConfig({
       customPages: [],
       serialize(item) {
         // Homepage - highest priority
-        if (item.url === 'http://localhost:4321/') {
+        if (item.url === 'https://demo-astro-jocr.vercel.app/') {
           item.changefreq = 'daily'
           item.priority = 1.0
         }
