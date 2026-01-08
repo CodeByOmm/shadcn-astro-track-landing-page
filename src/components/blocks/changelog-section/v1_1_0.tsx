@@ -2,6 +2,7 @@ import TimelineItem from '@/components/timeline/timeline-items'
 import Accordion from '@/components/badge-accordion/badge-accordion'
 import { accordionDataV1_1_0 } from '@/assets/data/changelog-data'
 import { Button } from '@/components/ui/button'
+import image2 from '@/assets/images/image-2.webp'
 
 function v1_1_0() {
   return (
@@ -15,7 +16,7 @@ function v1_1_0() {
               semantic, and fully type-safe — built for scaling design systems.
             </p>
           </div>
-          <img src='/images/image-2.png' alt='Design Tokens 2.0 Demo' loading='lazy' />
+          <img src={image2.src} alt='Design Tokens 2.0 Demo' loading='lazy' />
           <p className='text-muted-foreground'>
             Design Tokens 2.0 introduces a complete overhaul of how themes are managed within shadcnstudio. With this
             update, design tokens are now hierarchical and semantic, offering greater flexibility and scalability for
