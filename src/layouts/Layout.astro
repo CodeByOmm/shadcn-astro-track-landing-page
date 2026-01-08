@@ -1,0 +1,54 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import '@/styles/global.css'
+import HeadSeo from '@/components/HeadSeo.astro'
+import Header from '@/components/layout/header'
+import Footer from '@/components/layout/footer'
+
+import { navigationData } from '@/assets/data/header'
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+  type?: 'website' | 'article'
+  keywords?: string
+  author?: string
+  publishedTime?: string
+  modifiedTime?: string
+  noindex?: boolean
+  nofollow?: boolean
+  schema?: Record<string, any>
+}
+
+const seoProps = Astro.props as Props
+---
+
+<!doctype html>
+<html lang='en' class='scroll-smooth'>
+  <head>
+    <HeadSeo {...seoProps} />
+    <ClientRouter />
+    <style>
+      /* Disable all view transitions while keeping client-side navigation */
+      ::view-transition-group(*),
+      ::view-transition-old(*),
+      ::view-transition-new(*) {
+        animation-duration: 0ms !important;
+      }
+    </style>
+  </head>
+  <body class='flex min-h-screen w-full flex-auto flex-col antialiased'>
+    <!-- Skip to main content for accessibility -->
+    <a
+      href='#main-content'
+      class='focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:px-4 focus:py-2'
+    >
+      Skip to main content
+    </a>
+
+    <Header navigationData={navigationData} client:load />
+    <slot />
+    <Footer />
+  </body>
+</html>
