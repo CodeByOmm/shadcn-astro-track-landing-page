@@ -51,7 +51,7 @@
 /*.png
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
-/*.webp
+/*.png
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 /*.avif
@@ -70,7 +70,7 @@
 /assets/*.png
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
-/assets/*.webp
+/assets/*.png
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 # Fonts - immutable, very long cache
