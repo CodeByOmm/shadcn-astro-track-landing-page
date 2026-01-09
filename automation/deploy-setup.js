@@ -25,7 +25,7 @@ if (isProduction) {
   const productionRobotsTxt = `User-agent: *
 Disallow: /
 
-
+`
 
   fs.writeFileSync(robotsTxtPath, productionRobotsTxt)
   console.log('✅ Updated robots.txt for production')
