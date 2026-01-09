@@ -25,8 +25,7 @@ if (isProduction) {
   const productionRobotsTxt = `User-agent: *
 Disallow: /
 
-# This is a demo/staging site - not for indexing
-Sitemap: https://demo-astro-jocr.vercel.app/sitemap-index.xml`
+
 
   fs.writeFileSync(robotsTxtPath, productionRobotsTxt)
   console.log('✅ Updated robots.txt for production')
