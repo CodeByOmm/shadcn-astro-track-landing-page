@@ -2,9 +2,6 @@ import TimelineItem from '@/components/timeline/timeline-items'
 import Accordion from '@/components/badge-accordion/badge-accordion'
 import CopyCode from '@/components/blocks/copy-code-block/copy-code-block'
 import { accordionDataV1_2_0 } from '@/assets/data/changelog-data'
-import viteLogo from '@/assets/images/vite-logo.webp'
-import reactLogo from '@/assets/images/react-logo.webp'
-import angularLogo from '@/assets/images/angular-logo.webp'
 
 function v1_2_0() {
   return (
@@ -25,17 +22,17 @@ function v1_2_0() {
             <div className='fle-wrap flex items-center gap-4'>
               {/* vite */}
               <div className='flex items-center gap-1.5 rounded-md bg-amber-600/10 px-3 py-1 dark:bg-amber-400/10'>
-                <img src={viteLogo.src} alt='Vite' className='h-4.5' loading='lazy' />
+                <img src='/images/vite-logo.webp' alt='Vite' className='h-4.5' loading='lazy' />
                 <span className='text-xs font-medium'>Vite</span>
               </div>
               {/* React */}
               <div className='flex items-center gap-1.5 rounded-md bg-sky-600/10 px-3 py-1 dark:bg-sky-400/10'>
-                <img src={reactLogo.src} alt='React' className='h-4.5' loading='lazy' />
+                <img src='/images/react-logo.webp' alt='React' className='h-4.5' loading='lazy' />
                 <span className='text-xs font-medium'>React</span>
               </div>
               {/* Angular */}
               <div className='bg-destructive/10 flex items-center gap-1.5 rounded-md px-3 py-1'>
-                <img src={angularLogo.src} alt='Angular' className='h-4.5' loading='lazy' />
+                <img src='/images/angular-logo.webp' alt='Angular' className='h-4.5' loading='lazy' />
                 <span className='text-xs font-medium'>Angular</span>
               </div>
             </div>
