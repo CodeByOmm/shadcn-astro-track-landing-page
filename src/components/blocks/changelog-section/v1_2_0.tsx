@@ -23,7 +23,7 @@ function v1_2_0() {
               {/* vite */}
               <div className='flex items-center gap-1.5 rounded-md bg-amber-600/10 px-3 py-1 dark:bg-amber-400/10'>
                 <img src='/images/vite-logo.webp' alt='Vite' className='h-4.5' loading='lazy' />
-                <span className='text-xs font-medium'>Vite</span>
+                <span className='text-xs font-medium'>Vitcdfcxzce</span>
               </div>
               {/* React */}
               <div className='flex items-center gap-1.5 rounded-md bg-sky-600/10 px-3 py-1 dark:bg-sky-400/10'>
