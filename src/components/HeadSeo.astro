@@ -1,5 +1,7 @@
 ---
 import { SITE_METADATA, SITE_URL } from '@/consts'
+import fs from 'fs'
+import path from 'path'
 
 interface Props {
   title?: string
@@ -13,6 +15,16 @@ interface Props {
   noindex?: boolean
   nofollow?: boolean
   schema?: Record<string, any>
+}
+
+// Check if this is a production deployment by checking if the production flag exists
+let isProductionDeploy = false
+try {
+  const envFlagPath = path.join(process.cwd(), 'src', '.production-env')
+  isProductionDeploy = fs.existsSync(envFlagPath)
+} catch (e) {
+  // If we can't check the file system, fall back to environment variables
+  isProductionDeploy = import.meta.env.VERCEL || import.meta.env.NETLIFY || import.meta.env.NODE_ENV === 'production'
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -38,8 +50,14 @@ const finalImage = image || SITE_METADATA.openGraph.images[0].url
 const imageURL = new URL(finalImage, Astro.site)
 const finalAuthor = author || SITE_METADATA.authors[0].name
 
-// Robots meta tag
-const robotsContent = `${noindex || !SITE_METADATA.robots.index ? 'noindex' : 'index'}, ${nofollow || !SITE_METADATA.robots.follow ? 'nofollow' : 'follow'}, max-image-preview:large, max-snippet:-1, max-video-preview:-1`
+// Auto-set noindex/nofollow for production deployments (demo/staging sites)
+const forceNoIndex = isProductionDeploy
+const forceNoFollow = isProductionDeploy
+
+// Robots meta tag with production override
+const shouldNoIndex = noindex || forceNoIndex || !SITE_METADATA.robots.index
+const shouldNoFollow = nofollow || forceNoFollow || !SITE_METADATA.robots.follow
+const robotsContent = `${shouldNoIndex ? 'noindex' : 'index'}, ${shouldNoFollow ? 'nofollow' : 'follow'}, max-image-preview:large, max-snippet:-1, max-video-preview:-1`
 
 // Default schema.org structured data
 const defaultSchema = {

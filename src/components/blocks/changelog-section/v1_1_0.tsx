@@ -9,7 +9,7 @@ function v1_1_0() {
       <TimelineItem date='January 15, 2025' version='v 1.1.0'>
         <div className='space-y-4'>
           <div className='space-y-3'>
-            <h3 className='text-xl font-semibold'>Design Tokens 2.0 Global Theme Rebuild</h3>
+            <h3 className='text-xl font-semibold'>Design Tokens 2.0 Global Theme Reeeeeeeebuild</h3>
             <p className='text-muted-foreground text-sm'>
               We&apos;ve completely redesigned the theme system for Design Tokens 2.0. Tokens are now hierarchical,
               semantic, and fully type-safe — built for scaling design systems.
