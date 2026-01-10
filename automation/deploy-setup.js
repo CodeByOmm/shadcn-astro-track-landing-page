@@ -11,10 +11,21 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const isProduction = process.env.VERCEL || process.env.NETLIFY || process.env.NODE_ENV === 'production'
+// Detect production environment from various CI/CD services and Vercel
+const isProduction =
+  process.env.VERCEL ||
+  process.env.NETLIFY ||
+  process.env.NODE_ENV === 'production' ||
+  process.env.GITHUB_ACTIONS === 'true' ||
+  process.env.CI === 'true'
 
 console.log('🚀 Running deployment automation...')
 console.log('Environment:', isProduction ? 'Production' : 'Development')
+console.log('Environment variables:')
+console.log('  - VERCEL:', process.env.VERCEL || 'false')
+console.log('  - GITHUB_ACTIONS:', process.env.GITHUB_ACTIONS || 'false')
+console.log('  - CI:', process.env.CI || 'false')
+console.log('  - NODE_ENV:', process.env.NODE_ENV || 'undefined')
 
 if (isProduction) {
   console.log('🔒 Setting up production SEO configuration (noindex, nofollow)')
